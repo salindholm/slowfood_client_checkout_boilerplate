@@ -1,0 +1,10 @@
+{
+  "data": {
+    "id": 100,
+    "email": "thomas@craft.com",
+    "provider": "email", 
+    "uid": "thomas@craft.com", 
+    "name": "Thomas",
+    "allow_password_change": false
+  }
+}
