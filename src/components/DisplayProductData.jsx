@@ -17,16 +17,22 @@ class DisplayProductData extends Component {
 
 	render() {
 		let dataIndex
-		debugger
-		if (Array.isArray(this.state.productData) && this.state.productData.length ) {
+		if (Array.isArray(this.state.productData) && this.state.productData.length) {
 			dataIndex = (
 				<div id="index">
 					{this.state.productData.map(item => {
-						return <div key={item.id}>{item.name}{item.description}{item.price}</div>
+						return (
+							<div key={item.id} data-cy={`product-${item.id}`}>
+								{item.name}{item.description}{item.price}
+								{ localStorage.getItem('authenticated') === 'true' &&
+									<button>Add to Order</button>
+								}
+							</div>
+						)
 					})}
 				</div>
 			)
-		} 
+		}
 
 		return (
 			<div>
