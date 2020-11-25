@@ -13,7 +13,7 @@ class Login extends Component {
       password: event.target.password.value,
       password_confirmation: event.target.password_confirmation.value
     }
-    let response = await axios.post('http://localhost:3000/api/auth/sign_up', credentials)
+    let response = await axios.post('http://localhost:3000/api/auth', credentials)
     const userData = {
       uid: response.headers.uid,
       client: response.headers.client,

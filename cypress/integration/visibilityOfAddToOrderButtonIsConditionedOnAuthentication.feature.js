@@ -4,7 +4,7 @@ describe('Add to Order button', () => {
     cy.server()
     cy.route({
       method: 'POST',
-      url: 'http://localhost:3000/api/auth/sign_up',
+      url: 'http://localhost:3000/api/auth',
       response: "fixture:successful_sign_up.json",
       headers: {
         uid: 'thomas@craft.com',
