@@ -25,7 +25,12 @@ class DisplayProductData extends Component {
 							<div key={item.id} data-cy={`product-${item.id}`}>
 								{item.name}{item.description}{item.price}
 								{ localStorage.getItem('authenticated') === 'true' &&
-									<button>Add to Order</button>
+									<button
+									data-product={item.id}
+										onClick={(event)=> this.props.addToOrder(event)}
+									>
+										Add to Order
+									</button>
 								}
 							</div>
 						)

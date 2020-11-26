@@ -1,5 +1,4 @@
-describe('Add to Order button', () => {
-
+describe('Adding a product to an order', () => {
   beforeEach(() => {
     cy.server()
     cy.route({
@@ -19,29 +18,25 @@ describe('Add to Order button', () => {
       url: 'http://localhost:3000/api/products',
       response: 'fixture:product_data.json'
     })
+
+    cy.route({
+      method: 'POST',
+      url: 'http://localhost:3000/orders',
+      response: 'fixture:first_product_added_to_order.json'
+    })
+
     cy.visit('/')
-  });
-
-  describe('when user is NOT authenticated', () => {
-    it('is expected to be hidden ', () => {
-      cy.get('[data-cy="product-1"]').within(()=>{
-        cy.get('button').should('not.be.visible')
-      })
-    });
-  });
-
-  describe('when user is authenticated', () => {
-    beforeEach(() => {
-      cy.get('[data-cy="register-cta"]').click()
+    cy.get('[data-cy="register-cta"]').click()
       cy.get('[data-cy="email"]').type('thomas@craft.com')
       cy.get('[data-cy="password"]').type('password')
       cy.get('[data-cy="password-confirmation"]').type('password')
       cy.get('[data-cy="register"]').click()
-    });
-    it('is expected to bi VISIBLE ', () => {
-      cy.get('[data-cy="product-1"]').within(()=>{
-        cy.get('button').should('be.visible')
-      })
-    });
-  });
-});
+  })
+  it('', () => {
+    cy.get('[data-cy="product-1"]').within(()=>{
+      cy.get('button').click()
+    })
+    cy.get('[data-cy="message"]').should('contain', "Product was successfully added to your order")
+    cy.get('[data-cy="order-items-count"]').should('contain', 'You have 1 item in your order')
+  })
+})
