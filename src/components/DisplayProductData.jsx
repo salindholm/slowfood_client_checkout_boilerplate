@@ -15,17 +15,6 @@ class DisplayProductData extends Component {
 		this.setState({ productData: result.data.products })
 	}
 
-	// async addToOrder(event) {
-	// 	let productID = parseInt(event.target.dataset.product)
-	// 	let headers = JSON.parse(localStorage.getItem('credentials'))
-	// 	let response = await axios.post(
-	// 		'http://localhost:3000/orders',
-	// 		{ product_id: productID },
-	// 		{ headers: header }
-	// 		)
-		
-	// }
-
 	render() {
 		let dataIndex
 		if (Array.isArray(this.state.productData) && this.state.productData.length) {
