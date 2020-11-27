@@ -1,0 +1,20 @@
+{
+  "message": "Product was successfully added to your order",
+  "order": {
+    "id": 100,
+    "items": [
+      { 
+        "id": 1, 
+        "name": "Spaghetti and Meatballs",
+        "description": "Amazing pasta with Swedish meatballs.",
+        "price": 13.50
+      }, 
+      {
+        "id": 2,
+        "name": "Pizza",
+        "description": "Yummy pizza",
+        "price": 23.00
+      }
+    ]
+  }
+}

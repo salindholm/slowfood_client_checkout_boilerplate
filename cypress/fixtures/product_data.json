@@ -9,9 +9,9 @@
     },
     {
       "id": 2,
-      "name": "Salad",
-      "description": "Crispy green salad.",
-      "price": 4.00
+      "name": "Pizza",
+      "description": "Yummy Pizza!",
+      "price": 23.00
     },
     {
       "id": 3,
